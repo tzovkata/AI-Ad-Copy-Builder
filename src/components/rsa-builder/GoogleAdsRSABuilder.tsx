@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import { Download, Plus, X } from 'lucide-react';
+import { Download, Plus, X, ShoppingCart } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useAdBuilder } from '@/hooks/useAdBuilder';
 
 // UI Components
@@ -14,6 +15,7 @@ import CampaignComponent from './Campaign';
 import DebugLog from './DebugLog';
 
 const GoogleAdsRSABuilder: React.FC = () => {
+  const router = useRouter();
   const {
     apiConfig, setApiConfig, campaigns, addCampaign, removeCampaign, updateCampaign,
     addAdGroup, removeAdGroup, updateAdGroup, clearAdGroup,
@@ -49,6 +51,18 @@ const GoogleAdsRSABuilder: React.FC = () => {
               AI-Powered RSA Builder
             </h1>
             <p className="text-gray-400 text-lg">INTERFACE ACTIVE // We Build Digital Futures</p>
+
+                {/* ADD THIS ENTIRE SECTION: */}
+            <div className="mt-6">
+              <button
+                onClick={() => router.push('/feed')}
+                className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg transition-all transform hover:scale-105 shadow-lg"
+              >
+                <ShoppingCart size={20} />
+                <span>Go to Shopping Feed AI</span>
+              </button>
+            </div>
+            {/* END OF ADDED SECTION */}
           </div>
         </header>
         
